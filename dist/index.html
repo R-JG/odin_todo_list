@@ -6,9 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List</title>
     <link rel="stylesheet" href="./style.css">
-    <script src="./main.js"></script>
+    <script src="./bundle.js" defer></script>
 </head>
 <body>
-    
+    <div id="projects-container"></div>
+    <div id="modal-container">
+        <div id="modal">
+            <button id="close-button">&times;</button>
+            <h3>New Project:</h3>
+            <form class="new-project">
+                <input type="text" id="project-title" placeholder="Project Title" required>
+                <input type="text" id="project-description" placeholder="Project Description">
+                <input type="submit" id="create-project-button" value="Create Project">
+            </form>
+        </div>
+    </div>
 </body>
 </html>

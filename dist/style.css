@@ -1,0 +1,80 @@
+* {
+    box-sizing: border-box;
+    color: darkslategrey;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+button, #create-project-button {
+    padding: 7px 14px;
+    color: oldlace;
+    background-color: teal;
+    border: 0;
+    border-radius: 5px;
+}
+
+button:hover, #create-project-button:hover {
+    color: aliceblue;
+    background-color: rgb(160, 230, 220);
+}
+
+input[type=text] {
+    font-size: 12px;
+    color: darkslategrey;
+    margin: 5px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: teal;
+    border-radius: 5px;
+}
+
+#close-button {
+    height: 25px;
+    width: 25px;
+    padding: 0;
+    border-radius: 20px;
+    align-self: flex-end;
+    position: relative;
+    left: 7%;
+    bottom: 3%;
+}
+
+#modal-container {
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+}
+
+#modal-container.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#modal {
+    height: 300px;
+    width: 700px;
+    padding: 30px 60px;
+    background-color:rgb(245, 255, 254);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#projects-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}

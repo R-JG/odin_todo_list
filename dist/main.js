@@ -1,0 +1,1 @@
+(()=>{const t=document.getElementById("content"),e=document.createElement("button");e.textContent="New Project",t.appendChild(e)})();
