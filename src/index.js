@@ -45,15 +45,29 @@ function addProject(newProject) {
 const displayController = (() => {
     const projectsContainer = document.getElementById("projects-container");
 
-    function _updateProjectsContainer(projectsArray) {
+    function _populateProjectsContainer(projectsArray) {
+        projectsContainer.replaceChildren();
         for (let i = 0; i < projectsArray.length; i++) {
             const projectElement = document.createElement("div");
             projectElement.classList.add("project");
 
+            const infoSubDivider = document.createElement("div");
+            infoSubDivider.classList.add("project-subdivider");
+
             const titleElement = document.createElement("h3");
             titleElement.textContent = projectsArray[i].projectTitle;
 
-            projectElement.appendChild(titleElement);
+            const descriptionElement = document.createElement("p");
+            descriptionElement.textContent = projectsArray[i].projectDescription;
+
+            const addToDoItemButton = document.createElement("button");
+            addToDoItemButton.setAttribute("id", "todo-item-button")
+            addToDoItemButton.textContent = "+ To Do"
+
+            infoSubDivider.appendChild(titleElement);
+            infoSubDivider.appendChild(descriptionElement);
+            projectElement.appendChild(infoSubDivider);
+            projectElement.appendChild(addToDoItemButton);
             projectsContainer.appendChild(projectElement);
         };
     };
@@ -62,12 +76,11 @@ const displayController = (() => {
         const createProjectButton = document.getElementById("create-project-button");
         const modalContainer = document.getElementById("modal-container");
         const closeModalButton = document.getElementById("close-button");
-        const openModalButton = document.createElement("button");
+        const openModalButton = document.getElementById("open-button");
       
-        openModalButton.textContent = "New Project";
         openModalButton.addEventListener("click", (e) => {
             modalContainer.classList.add("show");
-            // temporary - reset input fields
+            // temporary - reset the modal's input fields:
             const formPlaceholderInputs = document.querySelectorAll("#form-placeholder input")
             formPlaceholderInputs.forEach(inputField => inputField.value = "");
         });
@@ -83,12 +96,10 @@ const displayController = (() => {
             const newProject = project(newProjectTitle, newProjectDescription);
             
             addProject(newProject);
-            _updateProjectsContainer(projectsArray);
+            _populateProjectsContainer(projectsArray);
 
             modalContainer.classList.remove("show");
         });
-    
-        projectsContainer.appendChild(openModalButton);
     };
 
     return { setModalButtons };

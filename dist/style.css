@@ -1,10 +1,19 @@
+:root {
+    --project-dimensions: 500px;
+}
+
 * {
     box-sizing: border-box;
     color: darkslategrey;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-button, #create-project-button {
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
     padding: 7px 14px;
     color: oldlace;
     background-color: teal;
@@ -12,7 +21,7 @@ button, #create-project-button {
     border-radius: 5px;
 }
 
-button:hover, #create-project-button:hover {
+button:hover {
     color: aliceblue;
     background-color: rgb(160, 230, 220);
 }
@@ -27,6 +36,53 @@ input[type=text] {
     border-radius: 5px;
 }
 
+.project {
+    height: var(--project-dimensions);
+    width: var(--project-dimensions);
+    margin: 50px;
+    padding: 20px;
+    border-width: 4px;
+    border-style: solid;
+    border-color: darkslategrey;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.project:hover {
+    color: teal;
+    background-color: rgb(245, 255, 254);
+    border-color: rgb(160, 230, 220);
+}
+
+.project-subdivider {
+    width: calc(var(--project-dimensions) * 0.91);
+    background-color: rgb(214, 240, 237);
+    padding: 7px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+#projects-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#open-button {
+    align-self: center;
+    justify-self: center;
+}
+
 #close-button {
     height: 25px;
     width: 25px;
@@ -36,6 +92,10 @@ input[type=text] {
     position: relative;
     left: 7%;
     bottom: 3%;
+}
+
+#todo-item-button {
+    padding: 3.5px 7px;
 }
 
 #modal-container {
@@ -69,12 +129,4 @@ input[type=text] {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-}
-
-#projects-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: flex-start;
 }
